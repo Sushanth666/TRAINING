@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    text-align: center;
+    padding: 1px;
+
+}
+
+p {
+    padding: 20px;
+}
+.main {
+    padding: 20px;
+}
+
+.image1 {
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.image2 {
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.content {
+    padding: 20px;
+}

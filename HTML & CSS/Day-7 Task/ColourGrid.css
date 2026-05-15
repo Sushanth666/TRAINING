@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  background: #2e3156;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-template-rows: 120px 120px 120px;
+  gap: 10px;
+}
+
+
+.green {
+  background: green;
+}
+
+.red {
+  background: red;
+}
+
+.yellow {
+  background: yellow;
+}
+
+
+.big-left {
+  grid-row: 1 / 4;
+}
+
+.top-wide {
+  grid-column: 2 / 4;
+}
+
+.top-right {
+  grid-column: 4 / 5;
+}
+
+.big-right {
+  grid-column: 4 / 5;
+  grid-row: 2 / 4;
+}

@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background: #08bd89;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  gap: 10px;
+  width: 700px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.grapes {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.strawberry {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+
+.watermelon {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.orange {
+  grid-column: span 2;
+}
+
+.papaya {
+  grid-column: span 2;
+}
+
+.pineapple {
+  grid-column: span 2;
+}

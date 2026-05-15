@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background:  #eee;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: #333;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.main {
+    margin-left: 230px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.main img {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    height: 800px;
+}
+
+.content p {
+    margin: 10px 0;
+}

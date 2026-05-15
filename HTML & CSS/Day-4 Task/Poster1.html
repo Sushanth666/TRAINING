@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card</title>
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            width: 350px;
+            margin: 50px auto;             
+            padding: 20px;                 
+            border: 4px solid #2c3e50;      
+            border-radius: 15px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 5px;
+        }
+        hr {
+            margin: 15px 0;
+        }
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #3498db;
+            margin: 15px 0;
+        }
+        h3 {
+            margin-bottom: 10px;
+        }
+        .details {
+            text-align: left;
+            border: 1px dashed #aaa;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .footer {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <h2>ABC Engineering College</h2>
+        <p>Student Identity Card</p>
+
+        <hr>
+
+        <div class="profile">
+            <img src="data:image/jpeg;base64,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" alt="Profile">
+        </div>
+
+        <h3>Praveen K</h3>
+
+        <div class="details">
+            <p><b>ID No:</b> ECE2024001</p>
+            <p><b>Department:</b> ECE</p>
+            <p><b>Year:</b> Final Year</p>
+            <p><b>DOB:</b> 07-12-YYYY</p>
+            <p><b>Blood Group:</b> O+</p>
+            <p><b>Phone:</b> 99XXX XX130</p>
+        </div>
+
+        <hr>
+
+        <div class="footer">
+            <p>Valid Till: May 2026</p>
+            <p>Authorized Signature</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
