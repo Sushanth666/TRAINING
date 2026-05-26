@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time JavaScript Tasks</title>
+</head>
+<body>
+
+<h1>Real-Time Easy + Thinking Based Tasks</h1>
+
+<script>
+
+// Task 1 — Employee Bonus Filter
+// Concept: filter(), map()
+// Find employees whose salary is greater than 300000
+// Print: Congrats <name>
+
+let employees = [
+  {name:"john", salary:200000},
+  {name:"rahul", salary:500000},
+  {name:"siva", salary:700000}
+]
+
+employees
+.filter(emp => emp.salary > 300000)
+.forEach(emp => console.log("Congrats " + emp.name))
+
+// Output:
+// Congrats rahul
+// Congrats siva
+
+
+
+// Task 2 — Shopping Cart Total
+// Concept: reduce()
+// Calculate total bill amount
+
+let cart = [1200, 3400, 500, 999]
+
+let total = cart.reduce((acc,val)=> acc + val)
+
+console.log(total)
+
+// Output:
+// 6099
+
+
+
+// Task 3 — Login Username Formatter
+// Concept: slice(), toUpperCase()
+// Convert first letter into capital
+
+let user = "naveen"
+
+let formatted =
+user.slice(0,1).toUpperCase() + user.slice(1)
+
+console.log(formatted)
+
+// Output:
+// Naveen
+
+
+
+// Task 4 — OTP Checker
+// Concept: includes()
+// Check whether OTP contains number 0
+
+let otp = "560890"
+
+console.log(
+otp.includes("0") ? "Valid OTP" : "Invalid OTP"
+)
+
+// Output:
+// Valid OTP
+
+
+
+// Task 5 — Food Delivery App
+// Concept: push(), pop()
+// Add new order and remove delivered order
+
+let orders = ["burger","pizza"]
+
+orders.push("shawarma")
+
+orders.pop()
+
+console.log(orders)
+
+// Output:
+// ["burger","pizza"]
+
+
+
+// Task 6 — Attendance Checker
+// Concept: every()
+// Check whether all students passed
+
+let marks = [40,50,70,80]
+
+let passed = marks.every(mark => mark >= 35)
+
+console.log(passed)
+
+// Output:
+// true
+
+
+
+// Task 7 — Find VIP Customer
+// Concept: find()
+// Find first customer whose purchase is greater than 10000
+
+let customer = [
+  {name:"arun", purchase:5000},
+  {name:"vijay", purchase:15000},
+  {name:"surya", purchase:25000}
+]
+
+let vip = customer.find(c => c.purchase > 10000)
+
+console.log(vip.name)
+
+// Output:
+// vijay
+
+
+
+// Task 8 — Reverse Chat Message
+// Concept: split(), reverse(), join()
+// Reverse the message
+
+let msg = "hello"
+
+let reversed =
+msg.split("").reverse().join("")
+
+console.log(reversed)
+
+// Output:
+// olleh
+
+
+
+// Task 9 — Remove Duplicate Product
+// Concept: indexOf()
+// Find position of "mobile"
+
+let products = ["tv","laptop","mobile","watch"]
+
+console.log(products.indexOf("mobile"))
+
+// Output:
+// 2
+
+
+
+// Task 10 — Student Rank Sort
+// Concept: sort()
+// Sort marks ascending order
+
+let marks2 = [99,45,12,67,89]
+
+marks2.sort((a,b)=> a-b)
+
+console.log(marks2)
+
+// Output:
+// [12,45,67,89,99]
+
+
+
+// Task 11 — Movie Search
+// Concept: some()
+// Check whether "Leo" movie exists
+
+let movies = ["Jailer","Leo","Vikram"]
+
+console.log(
+movies.some(movie => movie === "Leo")
+)
+
+// Output:
+// true
+
+
+
+// Task 12 — Hide Mobile Number
+// Concept: slice()
+// Show only last 4 digits
+
+let num = "6383366774"
+
+console.log(num.slice(-4))
+
+// Output:
+// 6774
+
+
+
+// Task 13 — Online Exam Result
+// Concept: ternary operator
+// If mark >= 35 print "Pass" else "Fail"
+
+let mark = 78
+
+console.log(
+mark >= 35 ? "Pass" : "Fail"
+)
+
+// Output:
+// Pass
+
+
+
+// Task 14 — Cab Booking Price
+// Concept: function, return
+// Create function for total fare
+
+function fare(baseFare, extraKm){
+
+    return baseFare + extraKm
+
+}
+
+console.log(fare(100,50))
+
+// Output:
+// 150
+
+
+
+// Task 15 — Instagram Hashtag Generator
+// Concept: replaceAll()
+// Convert spaces into _
+
+let tag = "web developer"
+
+console.log(tag.replaceAll(" ","_"))
+
+// Output:
+// web_developer
+
+
+
+// Task 16 — Netflix Kids Content
+// Concept: filter()
+// Get only movies below age 18
+
+let movies2 = [
+  {name:"A", age:13},
+  {name:"B", age:18},
+  {name:"C", age:10}
+]
+
+movies2
+.filter(movie => movie.age < 18)
+.forEach(movie => console.log(movie.name))
+
+// Output:
+// A
+// C
+
+
+
+// Task 17 — E-commerce Product Search
+// Concept: startsWith()
+// Check whether product starts with "i"
+
+let product = "iphone"
+
+console.log(product.startsWith("i"))
+
+// Output:
+// true
+
+
+
+// Task 18 — WhatsApp Group Names
+// Concept: forEach()
+// Print all group names with numbering
+
+let groups = ["office","friends","family"]
+
+groups.forEach((group,index)=>{
+    console.log(index + 1, group)
+})
+
+// Output:
+// 1 office
+// 2 friends
+// 3 family
+
+
+
+// Task 19 — Salary Highest Finder
+// Concept: reduce()
+// Find highest salary
+
+let salary = [20000,50000,70000,10000]
+
+let highest =
+salary.reduce((max,val)=> val > max ? val : max)
+
+console.log(highest)
+
+// Output:
+// 70000
+
+
+
+// Task 20 — Password Security Checker
+// Concept: length, includes()
+// Password should contain @ and minimum 8 characters
+
+let password = "navi@123"
+
+let result =
+password.includes("@") && password.length >= 8
+? "Strong Password"
+: "Weak Password"
+
+console.log(result)
+
+// Output:
+// Strong Password
+
+</script>
+
+</body>
+</html>
