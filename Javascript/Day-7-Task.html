@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time JavaScript Tasks</title>
+</head>
+<body>
+
+<script>
+
+// Task 1 — E-Commerce Product Filter
+// Fetch all products
+// Filter products whose:
+// price > 100
+// category = "electronics"
+
+fetch("https://fakestoreapi.com/products/")
+.then(res => res.json())
+.then(data => {
+
+    let result = data.filter(product =>
+        product.price > 100 &&
+        product.category === "electronics"
+    )
+
+    result.forEach(product => {
+        console.log(product.title)
+        console.log(product.price)
+    })
+
+})
+
+// Output:
+// Product title
+// Product price
+
+
+
+
+// Task 2 — Online Shopping Cart Total
+// Calculate total bill amount using reduce()
+
+let cart = [
+  {product:"Shoes", price:2000, qty:2},
+  {product:"Watch", price:1500, qty:1},
+  {product:"Bag", price:1000, qty:3}
+]
+
+let total = cart.reduce((acc,item)=>{
+    return acc + (item.price * item.qty)
+},0)
+
+console.log(total)
+
+// Output:
+// 8500
+
+
+
+
+// Task 3 — Employee Salary Dashboard
+// Filter employees whose salary is greater than 40000
+
+let employees = [
+  {name:"John", salary:25000},
+  {name:"Sam", salary:50000},
+  {name:"Ravi", salary:45000},
+  {name:"Kumar", salary:30000}
+]
+
+employees
+.filter(emp => emp.salary > 40000)
+.map(emp => console.log(emp.name))
+
+// Output:
+// Sam
+// Ravi
+
+
+
+
+// Task 4 — Food Delivery App
+// Find first restaurant rating greater than 4.5
+
+let hotels = [
+  {hotel:"A2B", rating:4.1},
+  {hotel:"KFC", rating:4.7},
+  {hotel:"Dominos", rating:4.3}
+]
+
+let hotelResult = hotels.find(hotel => hotel.rating > 4.5)
+
+console.log(hotelResult.hotel)
+
+// Output:
+// KFC
+
+
+
+
+// Task 5 — Student Pass/Fail System
+// Check all students passed or not
+
+let marks = [45,67,89,90,34]
+
+let result = marks.every(mark => mark >= 35)
+
+console.log(result)
+
+// Output:
+// false
+
+
+
+
+// Task 6 — OTP Verification System
+// Check whether entered OTP exists
+
+let otpList = [1234,4567,7890,9876]
+
+console.log(otpList.includes(7890))
+
+// Output:
+// true
+
+
+
+
+// Task 7 — Movie Booking Timer
+// Create countdown from 10 to 0
+
+let count = 10
+
+let timer = setInterval(()=>{
+
+    console.log(count)
+
+    count--
+
+    if(count < 0){
+        clearInterval(timer)
+        console.log("Booking Closed")
+    }
+
+},1000)
+
+// Output:
+// 10
+// 9
+// 8
+// ...
+// 0
+// Booking Closed
+
+
+
+
+// Task 8 — Instagram Like Counter
+// Every second increase likes count
+// Stop after 10 likes
+
+let likes = 0
+
+let likeTimer = setInterval(()=>{
+
+    likes++
+
+    console.log("Likes :", likes)
+
+    if(likes === 10){
+        clearInterval(likeTimer)
+    }
+
+},1000)
+
+// Output:
+// Likes : 1
+// Likes : 2
+// ...
+// Likes : 10
+
+
+
+
+// Task 9 — Login Authentication
+// Check username and password
+
+let username = "admin"
+let password = "12345"
+
+if(username === "admin" && password === "12345"){
+    console.log("Login Success")
+}
+else{
+    console.log("Invalid Credentials")
+}
+
+// Output:
+// Login Success
+
+
+
+
+// Task 10 — Weather App Simulation
+// Create Promise manually
+
+let internet = true
+
+let weatherPromise = new Promise((resolve,reject)=>{
+
+    if(internet){
+        resolve("Weather Data")
+    }
+    else{
+        reject("No Internet")
+    }
+
+})
+
+weatherPromise
+.then(data => console.log(data))
+.catch(error => console.log(error))
+
+// Output:
+// Weather Data
+
+
+
+
+// Task 11 — Amazon Product Search
+// Search products containing word "shirt"
+
+let products = [
+    "shirt",
+    "tshirt",
+    "jeans",
+    "formal shirt"
+]
+
+let shirtProducts = products.filter(product =>
+    product.includes("shirt")
+)
+
+console.log(shirtProducts)
+
+// Output:
+// ["shirt","tshirt","formal shirt"]
+
+
+
+
+// Task 12 — YouTube Video Duration
+// Calculate total watch time
+
+let videos = [10,20,30,40]
+
+let totalTime = videos.reduce((acc,val)=> acc + val)
+
+console.log(totalTime)
+
+// Output:
+// 100
+
+
+
+
+// Task 13 — Swiggy Order Status
+// Use switch statement
+
+let status = "Preparing"
+
+switch(status){
+
+    case "Placed":
+        console.log("Order Placed")
+        break
+
+    case "Preparing":
+        console.log("Food is Preparing")
+        break
+
+    case "Out for Delivery":
+        console.log("Order is Coming")
+        break
+
+    case "Delivered":
+        console.log("Order Delivered")
+        break
+
+    default:
+        console.log("Invalid Status")
+
+}
+
+// Output:
+// Food is Preparing
+
+
+
+
+// Task 14 — WhatsApp Chat Analyzer
+// Count total messages
+
+let chats = ["hi","hello","where","ok","bye"]
+
+for(let i=0; i<chats.length; i++){
+    console.log(chats[i])
+}
+
+console.log("Total Messages :", chats.length)
+
+// Output:
+// hi
+// hello
+// where
+// ok
+// bye
+// Total Messages : 5
+
+
+
+
+// Task 15 — Netflix Age Restriction
+// If age >= 18 show movie else access denied
+
+let age = 20
+
+console.log(
+age >= 18
+? "watch movie"
+: "access denied"
+)
+
+// Output:
+// watch movie
+
+
+
+
+// Task 16 — Flipkart Product Sorting
+// Sort products by price low to high
+
+let prices = [1200,450,9999,2500,700]
+
+prices.sort((a,b)=> a-b)
+
+console.log(prices)
+
+// Output:
+// [450,700,1200,2500,9999]
+
+
+
+
+// Task 17 — Employee Attendance
+// Convert array into object count
+
+let attendance = ["present","absent","present"]
+
+let countAttendance = attendance.reduce((acc,val)=>{
+
+    acc[val] = (acc[val] || 0) + 1
+
+    return acc
+
+},{})
+
+console.log(countAttendance)
+
+// Output:
+// {
+//   present:2,
+//   absent:1
+// }
+
+
+
+
+// Task 18 — Banking System
+// Create deposit(), withdraw(), checkBalance()
+
+let balance = 5000
+
+function deposit(amount){
+
+    balance += amount
+
+    console.log("Deposited :", amount)
+
+}
+
+function withdraw(amount){
+
+    balance -= amount
+
+    console.log("Withdrawn :", amount)
+
+}
+
+function checkBalance(){
+
+    console.log("Balance :", balance)
+
+}
+
+deposit(2000)
+
+withdraw(1000)
+
+checkBalance()
+
+// Output:
+// Deposited : 2000
+// Withdrawn : 1000
+// Balance : 6000
+
+
+
+
+// Task 19 — Zomato Rating Checker
+// Check any hotel rating below 3
+
+let ratings = [4.5,3.8,2.5,4.9]
+
+let lowRating = ratings.some(rating => rating < 3)
+
+console.log(lowRating)
+
+// Output:
+// true
+
+
+
+
+// Task 20 — Real API Product Table
+// Fetch API and print title, price, image
+// Inside HTML cards dynamically
+
+fetch("https://fakestoreapi.com/products/")
+.then(res => res.json())
+.then(data => {
+
+    data.map(product => {
+
+        document.body.innerHTML += `
+
+        <div style="
+            border:1px solid black;
+            padding:10px;
+            margin:10px;
+            width:250px;
+        ">
+
+            <img src="${product.image}" width="100">
+
+            <h3>${product.title}</h3>
+
+            <p>₹ ${product.price}</p>
+
+        </div>
+
+        `
+
+    })
+
+})
+
+// Output:
+// Product cards displayed in browser
+
+
+
+
+// Task 21 — Build Small E-Commerce Logic
+// Fetch products
+// Filter by category
+// Sort by price
+// Search product
+// Add to cart
+// Total calculation
+
+let cartItems = []
+
+fetch("https://fakestoreapi.com/products/")
+.then(res => res.json())
+.then(data => {
+
+    // Filter category
+
+    let electronics = data.filter(product =>
+        product.category === "electronics"
+    )
+
+    console.log(electronics)
+
+    // Sort by price
+
+    let sorted = data.sort((a,b)=>
+        a.price - b.price
+    )
+
+    console.log(sorted)
+
+    // Search product
+
+    let search = data.filter(product =>
+        product.title.toLowerCase().includes("shirt")
+    )
+
+    console.log(search)
+
+    // Add to cart
+
+    cartItems.push(data[0])
+    cartItems.push(data[1])
+
+    console.log(cartItems)
+
+    // Total calculation
+
+    let total = cartItems.reduce((acc,item)=>
+        acc + item.price
+    ,0)
+
+    console.log("Total :", total)
+
+})
+
+// Output:
+// Filtered products
+// Sorted products
+// Search results
+// Cart items
+// Total amount
+
+
+</script>
+
+</body>
+</html>
