@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fake Store API Tasks</title>
+</head>
+<body>
+
+<script>
+
+let apiLink = "https://fakestoreapi.com/products";
+
+fetch(apiLink)
+.then(response => response.json())
+.then(products => {
+
+    // Write Tasks Here
+    // Task 1 — Print All Products
+    // Fetch all products and print them
+
+        products.forEach(product => {
+
+            console.log("Title :", product.title);
+            console.log("Price :", product.price);
+
+        });
+
+        // Output:
+        // Title : ...
+        // Price : ...
+
+
+
+
+        // Task 2 — Print Only Product Titles
+        // Use forEach() or map()
+
+        products.forEach(product => {
+
+            console.log(product.title);
+
+        });
+
+        // Output:
+        // Product 1
+        // Product 2
+        // Product 3
+
+
+
+        // Task 3 — Print Total Products
+
+        console.log("Total Products :", products.length);
+
+        // Output:
+        // Total Products : 20
+
+
+
+        // Task 4 — Print All Categories
+
+        let categories =
+        [...new Set(products.map(product => product.category))];
+
+        categories.forEach(category => {
+
+            console.log(category);
+
+        });
+
+        // Output:
+        // electronics
+        // jewelery
+        // men's clothing
+        // women's clothing
+
+
+
+        // Task 5 — Print Products Above $50
+        // Use filter()
+
+        products
+        .filter(product => product.price > 50)
+        .forEach(product => {
+
+            console.log(product.title + " - " + product.price);
+
+        });
+
+        // Output:
+        // Product A - 109
+        // Product B - 250
+
+
+        // Task 6 — Print Products Below $50
+
+        products
+        .filter(product => product.price < 50)
+        .forEach(product => {
+
+            console.log(product.title + " - " + product.price);
+
+        });
+
+
+
+        // Task 7 — Find First Product Above $100
+        // Use find()
+
+        let productAbove100 =
+        products.find(product => product.price > 100);
+
+        console.log(productAbove100);
+
+        // Output:
+        // {
+        //   title:"...",
+        //   price:109
+        // }
+
+
+
+        // Task 8 — Search Product
+        // Use includes() and filter()
+
+        let searchText = "shirt";
+
+        let result = products.filter(product =>
+
+            product.title
+            .toLowerCase()
+            .includes(searchText.toLowerCase())
+
+        );
+
+        console.log(result);
+
+
+
+
+
+        // Task 9 — Count Electronics Products
+
+        let electronicsCount =
+        products.filter(product =>
+        product.category === "electronics").length;
+
+        console.log(
+        "Electronics Count :",
+        electronicsCount
+        );
+
+        // Output:
+        // Electronics Count : 6
+
+
+
+
+
+        // Task 10 — Print Highest Price Product
+        // Use reduce()
+
+        let highestPriceProduct =
+        products.reduce((highest,current)=>{
+
+            return current.price > highest.price
+            ? current
+            : highest;
+
+        });
+
+        console.log(highestPriceProduct);
+
+
+
+
+        // Task 11 — Print Lowest Price Product
+
+        let lowestPriceProduct =
+        products.reduce((lowest,current)=>{
+
+            return current.price < lowest.price
+            ? current
+            : lowest;
+
+        });
+
+        console.log(lowestPriceProduct);
+
+
+
+
+
+        // Task 12 — Calculate Total Price of All Products
+        // Use reduce()
+
+        let totalPrice =
+        products.reduce((sum,product)=>{
+
+            return sum + product.price;
+
+        },0);
+
+        console.log(
+        "Total Price :",
+        totalPrice.toFixed(2)
+        );
+
+
+
+
+        // Task 13 — Calculate Average Product Price
+
+        let averagePrice =
+        totalPrice / products.length;
+
+        console.log(
+        "Average Price :",
+        averagePrice.toFixed(2)
+        );
+
+
+
+
+
+
+        // Task 14 — Print Product With Highest Rating
+
+        let bestRated =
+        products.reduce((best,current)=>{
+
+            return current.rating.rate >
+            best.rating.rate
+            ? current
+            : best;
+
+        });
+
+        console.log(
+        "Title :",
+        bestRated.title
+        );
+
+        console.log(
+        "Rating :",
+        bestRated.rating.rate
+        );
+
+
+
+
+
+
+        // Task 15 — Print Product With Lowest Rating
+
+        let lowestRated =
+        products.reduce((lowest,current)=>{
+
+            return current.rating.rate <
+            lowest.rating.rate
+            ? current
+            : lowest;
+
+        });
+
+        console.log(
+        "Title :",
+        lowestRated.title
+        );
+
+        console.log(
+        "Rating :",
+        lowestRated.rating.rate
+        );
+
+
+
+
+
+
+
+
+        // Task 16 — Category Wise Product Count
+        // Use reduce()
+
+        let categoryCount =
+        products.reduce((acc,product)=>{
+
+            acc[product.category] =
+            (acc[product.category] || 0) + 1;
+
+            return acc;
+
+        },{});
+
+        console.log(categoryCount);
+
+        // Output:
+        // {
+        // electronics:6,
+        // jewelery:4,
+        // men's clothing:4,
+        // women's clothing:6
+        // }
+
+
+
+
+        // Task 17 — Create Discounted Products
+        // Apply 10% discount
+
+        let discountedProducts =
+        products.map(product => {
+
+            return {
+                title : product.title,
+                oldPrice : product.price,
+                newPrice : (product.price * 0.9).toFixed(2)
+            }
+
+        });
+
+        console.log(discountedProducts);
+
+
+
+
+
+
+
+
+        // Task 18 — Sort Products Low To High
+
+        let lowToHigh =
+        [...products].sort((a,b)=>
+        a.price - b.price
+        );
+
+        console.log(lowToHigh);
+
+
+
+
+
+
+
+
+        // Task 19 — Sort Products High To Low
+
+        let highToLow =
+        [...products].sort((a,b)=>
+        b.price - a.price
+        );
+
+        console.log(highToLow);
+
+
+
+
+
+
+        // Task 20 — Check Any Product Above $500
+        // Use some()
+
+        let check =
+        products.some(product =>
+        product.price > 500
+        );
+
+        console.log(check);
+
+        // Output:
+        // true
+
+
+
+        // Task 21 — Check All Products Above Rating 3
+        // Use every()
+
+        let allAboveThree = products.every(product =>
+            product.rating.rate > 3
+        );
+
+        console.log(allAboveThree);
+
+        // Output:
+        // true / false
+
+
+
+        // Task 22 — Print Top 5 Costliest Products
+
+        let topFiveCostliest =
+        [...products]
+        .sort((a,b) => b.price - a.price)
+        .slice(0,5);
+
+        topFiveCostliest.forEach(product => {
+
+            console.log(product.title);
+
+        });
+
+        // Output:
+        // Product A
+        // Product B
+        // Product C
+        // Product D
+        // Product E
+
+
+
+        // Task 23 — Print Top 5 Rated Products
+        // Sort by rating and print first 5
+
+        let topFiveRated =
+        [...products]
+        .sort((a,b) => b.rating.rate - a.rating.rate)
+        .slice(0,5);
+
+        topFiveRated.forEach(product => {
+
+            console.log(
+                product.title,
+                "-",
+                product.rating.rate
+            );
+
+        });
+
+        // Output:
+        // Product Title - Rating
+
+
+
+        // Task 24 — Group Products By Category
+
+        let groupedProducts =
+        products.reduce((acc,product)=>{
+
+            if(!acc[product.category]){
+
+                acc[product.category] = [];
+
+            }
+
+            acc[product.category].push(product);
+
+            return acc;
+
+        },{});
+
+        console.log(groupedProducts);
+
+        // Output:
+        // {
+        //   electronics:[...],
+        //   jewelery:[...],
+        //   men's clothing:[...],
+        //   women's clothing:[...]
+        // }
+
+
+
+        // Task 25 — Convert Product Prices To INR
+        // Assume 1 USD = 85 INR
+
+        products.forEach(product => {
+
+            console.log(
+                "Title :",
+                product.title
+            );
+
+            console.log(
+                "Price : ₹" +
+                (product.price * 85).toFixed(2)
+            );
+
+        });
+
+        // Output:
+        // Title : ...
+        // Price : ₹8500
+
+
+
+        // Task 26 — Amazon Product Filter
+        // Price < 500
+        // Rating > 4
+        // Category = electronics
+
+        let amazonProducts =
+        products.filter(product =>
+
+            product.price < 500 &&
+            product.rating.rate > 4 &&
+            product.category === "electronics"
+
+        );
+
+        amazonProducts.forEach(product => {
+
+            console.log(
+                product.title,
+                "-",
+                product.price
+            );
+
+        });
+
+        // Output:
+        // Matching Products
+
+
+
+        // Task 27 — Best Seller Product
+        // Find Highest Rating
+
+        let bestSeller =
+        products.reduce((best,current)=>{
+
+            return current.rating.rate >
+            best.rating.rate
+            ? current
+            : best;
+
+        });
+
+        console.log(
+            "Best Seller :",
+            bestSeller.title
+        );
+
+        console.log(
+            "Rating :",
+            bestSeller.rating.rate
+        );
+
+        // Output:
+        // Best Seller Product
+
+
+
+        // Task 28 — Product Analytics Dashboard
+
+        let totalProducts = products.length;
+
+        let totalCategories =
+        new Set(
+        products.map(product => product.category)
+        ).size;
+
+        let highestPrice =
+        products.reduce((high,current)=>{
+
+            return current.price > high.price
+            ? current
+            : high;
+
+        });
+
+        let lowestPrice =
+        products.reduce((low,current)=>{
+
+            return current.price < low.price
+            ? current
+            : low;
+
+        });
+
+        let totalAmount =
+        products.reduce((sum,product)=>{
+
+            return sum + product.price;
+
+        },0);
+
+        let avgPrice =
+        totalAmount / totalProducts;
+
+        let bestRatedProduct =
+        products.reduce((best,current)=>{
+
+            return current.rating.rate >
+            best.rating.rate
+            ? current
+            : best;
+
+        });
+
+        console.log("Total Products :", totalProducts);
+        console.log("Total Categories :", totalCategories);
+        console.log("Highest Price Product :", highestPrice.title);
+        console.log("Lowest Price Product :", lowestPrice.title);
+        console.log("Average Price :", avgPrice.toFixed(2));
+        console.log("Best Rated Product :", bestRatedProduct.title);
+
+
+
+        // Task 29 — Inventory Report
+
+        let expensiveProducts =
+        products.filter(product =>
+        product.price > 100
+        );
+
+        let affordableProducts =
+        products.filter(product =>
+        product.price <= 100
+        );
+
+        let electronics =
+        products.filter(product =>
+        product.category === "electronics"
+        );
+
+        let jewellery =
+        products.filter(product =>
+        product.category === "jewelery"
+        );
+
+        let mens =
+        products.filter(product =>
+        product.category === "men's clothing"
+        );
+
+        let womens =
+        products.filter(product =>
+        product.category === "women's clothing"
+        );
+
+        console.log(
+        "Expensive Products :",
+        expensiveProducts.length
+        );
+
+        console.log(
+        "Affordable Products :",
+        affordableProducts.length
+        );
+
+        console.log(
+        "Electronics :",
+        electronics.length
+        );
+
+        console.log(
+        "Jewellery :",
+        jewellery.length
+        );
+
+        console.log(
+        "Mens Clothing :",
+        mens.length
+        );
+
+        console.log(
+        "Womens Clothing :",
+        womens.length
+        );
+
+
+
+        // Task 30 — Complete Admin Dashboard
+        // Interview Level
+
+        let categoryCounts =
+        products.reduce((acc,product)=>{
+
+            acc[product.category] =
+            (acc[product.category] || 0) + 1;
+
+            return acc;
+
+        },{});
+
+        console.log(
+        "=============================="
+        );
+
+        console.log(
+        "TOTAL PRODUCTS :",
+        products.length
+        );
+
+        console.log(
+        "TOTAL CATEGORIES :",
+        new Set(
+        products.map(product => product.category)
+        ).size
+        );
+
+        console.log(
+        "TOTAL PRICE :",
+        totalAmount.toFixed(2)
+        );
+
+        console.log(
+        "AVERAGE PRICE :",
+        avgPrice.toFixed(2)
+        );
+
+        console.log(
+        "HIGHEST PRICE PRODUCT :",
+        highestPrice.title
+        );
+
+        console.log(
+        "LOWEST PRICE PRODUCT :",
+        lowestPrice.title
+        );
+
+        console.log(
+        "BEST RATED PRODUCT :",
+        bestRatedProduct.title
+        );
+
+        console.log(
+        "LOWEST RATED PRODUCT :",
+        products.reduce((low,current)=>{
+
+            return current.rating.rate <
+            low.rating.rate
+            ? current
+            : low;
+
+        }).title
+        );
+
+        console.log(
+        "PRODUCTS ABOVE $100 :",
+        products.filter(product =>
+        product.price > 100
+        ).length
+        );
+
+        console.log(
+        "PRODUCTS BELOW $50 :",
+        products.filter(product =>
+        product.price < 50
+        ).length
+        );
+
+        console.log(
+        "CATEGORY COUNTS :"
+        );
+
+        console.log(categoryCounts);
+
+        console.log(
+        "=============================="
+        );
+
+})
+.catch(error => {
+    console.log(error);
+})
+.finally(() => {
+    console.log("API Execution Completed");
+});
+
+</script>
+
+</body>
+</html>
