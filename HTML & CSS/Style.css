@@ -1,0 +1,411 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* background-color: gray; */
+}
+
+/* h1{
+    color: violet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: line-through;
+    text-transform: capitalize;
+    font-weight: 900;
+    line-height: 5px;
+    letter-spacing: 1px;
+} */
+
+h2{
+    color: brown;
+}
+
+/* p{
+    color: chocolate;
+} */
+
+.Selector > h1,
+.Selector > h2,
+.Selector > h3,
+.Selector > h4,
+.Selector > h5,
+.Selector > p{
+    color: rgb(160, 14, 14);
+}
+
+/* .Selector > h1,h2,h3,h4,h5,p{
+    color: gray;
+} */
+
+#One > h2{
+    color: #28cdbf;
+}
+
+/* p{
+    background-image: url(./Assets/images.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+} */
+
+.Container{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    /* padding-left: 50px;
+    padding-top: 100px; */
+    padding: 30px 50px 70px 90px;
+    /* border-top: 10px solid black;
+    border-bottom: 20px solid hotpink; */
+    border: 10px solid darkseagreen;
+    /* margin-left: 100px;
+    margin-top: 100px; */
+    margin: 50px 70px 90px 110px;
+    border-radius: 50%;
+}
+
+.bluebox{
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    /* margin-top: 50px; */
+    /* position: relative; */
+    /* top: 50px; */
+    margin-top: 100px;
+    position: sticky;
+    top: 0;
+}
+
+.redbox{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    /* position: relative;
+    top: 30px;
+    left: 600px; */
+    /* position: fixed;
+    top: 50px;
+    left: 500px; */
+}
+
+.boxes > p{
+    display: inline-block;
+    background-color: red;
+    height: 500px;
+    width: 300px;
+}
+
+.box1{
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    flex: 2;
+    /* order: 2; */
+}
+
+.box2{
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+    flex: 3;
+    /* order: 3; */
+}
+
+.box3{
+    width: 200px;
+    height: 100px;
+    background-color: green;
+    flex: 1;
+    /* order: 1; */
+}
+
+.box4{
+    width: 200px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.box5{
+    width: 200px;
+    height: 100px;
+    background-color: deeppink;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    /* height: 500px; */
+    /* border: 2px solid black; */
+    align-items: start;
+    /* gap: 10px; */
+    /* flex-wrap: wrap; */
+    /* align-content: space-between; */
+}
+
+.box6{
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
+
+.box7{
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+}
+
+.box8{
+    width: 200px;
+    height: 100px;
+    background-color: green;
+}
+
+.box9{
+    width: 200px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.box10{
+    width: 200px;
+    height: 100px;
+    background-color: deeppink;
+}
+
+.para{
+    background-color: blue;
+    padding: 20px;
+    color: white;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(200px,1fr));
+    grid-template-rows: repeat(3,400px);
+}
+
+.item{
+    background-color: green;
+    font-size: 50px;
+    color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.outerbox{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+
+.itmes1{
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+    grid-column: span 3;
+}
+
+.itmes2{
+    grid-row: span 3;
+}
+
+.layout > div{
+    border: 1px solid black;
+    background-color: #ebabac;
+    font-size: 50px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+}
+
+.layout{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-areas: 
+    "z z z z"
+    "sb1 m m sb2"
+    "f f f f";
+}
+
+.header{
+    grid-area: z;
+}
+
+.sidebar1{
+    grid-area: sb1;
+}
+
+.sidebar2{
+    grid-area: sb2;
+}
+
+.main{
+    grid-area: m;
+}
+
+.footer{
+    grid-area: f;
+}
+
+.square{
+    width: 300px;
+    height: 300px;
+    background-color: salmon;
+    transition-duration: 5s;
+    transition-property: all;
+    transition-timing-function: linear;
+}
+
+.square:hover{
+    width: 600px;
+    background-color: blue;
+    /* transition-delay: 5s; */
+    transform: translateY(100px);
+}
+
+.square2{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    animation-name: Circle;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    position: relative;
+}
+
+/* @keyframes Circle {
+    25%{
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        left: 10px;
+        top: 10px;
+    }
+
+    50%{
+        width: 300px;
+        height: 300px;
+        background-color: brown;
+        left: 20px;
+        top: 20px;
+    }
+
+    75%{
+        width: 350px;
+        height: 350px;
+        background-color: deeppink;
+        left: 30px;
+        top: 30px;
+    }
+
+    100%{
+        width: 400px;
+        height: 400px;
+        background-color: cyan;
+        left: 40px;
+        top: 40px;
+    }
+} */
+
+
+@keyframes Circle {
+    from{
+        width: 300px;
+        height: 300px;
+        background-color: aqua;
+    }
+
+    to{
+        width: 500px;
+        height: 500px;
+        background-color: green;
+    }
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+}
+
+.btn:hover{
+    background-color: green;
+}
+
+input:focus{
+    border: 2px solid blue;
+    outline: none;
+}
+/* 
+li:nth-child(odd){
+    color: red;
+}
+
+li:nth-child(even){
+    color: green;
+} */
+
+/* p::first-line{
+    color: red;
+    font-size: 50px;
+} */
+
+p::after{
+    content: " Praveen";
+}
+
+#check:checked + label{
+    color: greenyellow;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: black;
+}
+
+h1{
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+}
+
+nav > ul{
+    display: flex;
+    gap: 25px;
+}
+
+nav > ul > li{
+    list-style: none;
+}
+
+nav > ul > li > a{
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+}
+
+svg{
+    width: 30px;
+    height: 30px;
+    fill: red;
+    display: none;
+}
+
+@media screen and (max-width:500px) {
+    nav{
+        display: none;
+    }
+
+    svg{
+        display: block;
+    }
+}
